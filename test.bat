@@ -1,0 +1,1 @@
+docker build -t docker-gs-ping-test --progress plain --no-cache --target run-test-stage .
