@@ -68,6 +68,8 @@ func initStore() (*sql.DB, error) {
 		os.Getenv("PGPASSWORD"),
 	)
 
+	fmt.Printf("Conn:%s", pgConnString)
+
 	var (
 		db  *sql.DB
 		err error
