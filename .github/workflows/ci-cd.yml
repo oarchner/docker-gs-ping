@@ -24,7 +24,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}
+            ${{ vars.DOCKER_USERNAME }}/${{ github.event.repository.name }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -63,7 +63,7 @@ jobs:
         if: github.event_name != 'pull_request'
         with:
           push: true
-          file: Dockerfile.multistage
+          file: Dockerfile
           target: build-release-stage
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
